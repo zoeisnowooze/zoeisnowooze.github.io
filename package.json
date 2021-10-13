@@ -1,0 +1,21 @@
+{
+  "name": "blorp.dev",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "build": "eleventy",
+    "watch": "eleventy --watch",
+    "serve": "eleventy --serve",
+    "start": "eleventy --serve",
+    "debug": "DEBUG=* eleventy"
+  },
+  "keywords": [],
+  "author": {
+    "name": "Zoe Gauthier",
+    "email": "hello@blorp.dev",
+    "url": "https://blorp.dev"
+  },
+  "devDependencies": {
+    "@11ty/eleventy": "^0.12.1"
+  }
+}

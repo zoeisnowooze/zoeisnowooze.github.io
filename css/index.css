@@ -1,0 +1,43 @@
+:root {
+  --blue: #3242bc;
+  --linen: #faf2ed;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+a:link, a:visited {
+  color: var(--blue);
+}
+
+body {
+  background-color: var(--linen);
+  color: var(--blue);
+  display: flex;
+  font-family: Overpass,sans-serif;
+  font-size: 24px;
+  line-height: 1.5;
+  --moz-osx-font-smoothing: grayscale;
+}
+
+h1 {
+  font-weight: 800;
+}
+
+header {
+  display: flex;
+}
+
+main {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 1024px;
+  padding: 1em;
+}
+
+.avatar img {
+  clip-path: circle();
+  max-width: 10rem;
+  width: 100%;
+}
