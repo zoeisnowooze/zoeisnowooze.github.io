@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Synthesizer tuning</title>
+    <meta name="description" content="">
+    <link type="text/plain" rel="author" href="/humans.txt" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Overpass:wght@400;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/index.css">
+    <link rel="stylesheet" href="/css/prism-witchhazel.hypercolor.css">
+  </head>
+  <body>
+    <header>
+      <h1 class="home"><a href="/"></a></h1>
+    </header>
+
+    <main class="tmpl-post">
+      <h1>Synthesizer tuning</h1>
+
+<time datetime="2007-11-19">19 Nov 2007</time>
+
+<p>A typical modular synthesizer is not limited to a number of fixed pitches, but can generate sounds in a very wide range
+of frequencies. However, if one needs to play the synth much like any other standard Western musical instrument, it
+will need to be tuned. The pitch relations between notes are generally handled by a MIDI to control voltage (CV)
+converter, or a quantizer. Tuning is usually performed by playing a note — in our case this is standard A above middle
+C, or A-440 — on a keyboard and turning on an oscillator with a constant reference pitch, like a virtual tuning fork.
+The main oscillator is tuned when no beats can be detected.</p>
+<p>In my synthesizer, I now need a precise reference oscillator. There is a design by
+<a href="http://www.modularsynthesis.com/a440/A440.htm">Dave Brown</a> using the timers of a small AVR microcontroller to create
+a very accurate square wave. This signal is then transformed into a pure sine wave by a very sharp low-pass filter that
+removes the overtones. Dave does not publish his code on his page but even if I could get help if I asked, I'm reading
+the ATtiny25 datasheet and doing it the hard way.</p>
+<p>The microcontroller has two timers that can be run from an external clock. There is a prescaler circuit that will
+increment the timer counter every power of 2 clock ticks up to 256 ticks per count. The idea here is to use a clock
+frequency that when divided by the prescaler will produce a timer very close to a multiple of 440 counts per second.
+Dave found that a clock running at 5.0688 MHz divided by 11520 is a very good approximation. The counters are limited
+to 8 bits (256 values). So the 5.0688 Mhz clock divided by 64 runs the counter at 79.2 kHz. If we count up to 180 to
+start a new pulse we get exactly 440 Hz.</p>
+
+<hr>
+<ul><li>Next: <a href="/posts/activity-tracking-files/">Editing and analyzing activity tracking files</a></li>
+</ul>
+
+    </main>
+  </body>
+</html>
