@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Zoe ✨</title>
+    <title>Zoé ✨</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <meta name="description" content="Zoe is now ooze and also a software developer from Montreal, Canada">
@@ -22,10 +22,16 @@
           </a>
         </h1>
       </header>
-      <h1>Hi, My name is Zoe!</h1>
+      <h1>Hi, My name is Zoé!</h1>
       <p>I'm a software developer in Montreal, Canada. I love coffee, and I'm a modular synthesizer and mechanical keyboard enthusiast.</p>
       <p>I will write patches to open-source software from time to time. You might find some of those under my <a href="https://github.com/zoeisnowooze">GitHub profile</a>.</p>
       <small>You can reach me by <a href="mailto:hello@blorp.dev">email</a>, on Twitter at <a rel="me" href="https://twitter.com/zoeisnowooze">@zoeisnowooze</a>, or on <a rel="me" href="https://mastodon.social/@ooze">Mastodon</a>.</small>
+
+      <div class="posts">
+        <h2>Posts</h2>
+        {% set postslist = collections.posts %}
+        {% include "postslist.njk" %}
+      </div>
     </main>
   </body>
 </html>

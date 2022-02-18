@@ -7,6 +7,9 @@ module.exports = function(eleventyConfig) {
     alwaysWrapLineHighlights: true,
   });
 
+  // https://www.11ty.dev/docs/data-deep-merge/
+  eleventyConfig.setDataDeepMerge(true);
+
   // Alias `layout: post` to `layout: layouts/post.njk`
   eleventyConfig.addLayoutAlias("post", "layouts/post.njk");
 
@@ -17,6 +20,10 @@ module.exports = function(eleventyConfig) {
   // https://html.spec.whatwg.org/multipage/common-microsyntaxes.html#valid-date-string
   eleventyConfig.addFilter('htmlDateString', (dateObj) => {
     return DateTime.fromJSDate(dateObj, {zone: 'utc'}).toFormat('yyyy-LL-dd');
+  });
+
+  eleventyConfig.addCollection("posts", function(collectionApi) {
+    return collectionApi.getFilteredByTag("posts");
   });
 
   eleventyConfig.addPassthroughCopy("css");
