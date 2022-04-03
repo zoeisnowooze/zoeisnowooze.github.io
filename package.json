@@ -16,8 +16,8 @@
     "url": "https://blorp.dev"
   },
   "devDependencies": {
-    "@11ty/eleventy": "^0.12.1",
-    "@11ty/eleventy-plugin-syntaxhighlight": "^3.1.3",
-    "luxon": "^2.0.2"
+    "@11ty/eleventy": "^1.0.0",
+    "@11ty/eleventy-plugin-syntaxhighlight": "^4.0.0",
+    "luxon": "^2.3.1"
   }
 }
