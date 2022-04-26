@@ -15,8 +15,8 @@ body {
   background-color: var(--linen);
   color: var(--blue);
   display: flex;
-  font-family: Overpass,sans-serif;
-  font-size: 24px;
+  font-family: Iosevka Aile Web,sans-serif;
+  font-size: 20px;
   line-height: 1.5;
   --moz-osx-font-smoothing: grayscale;
 }
@@ -26,7 +26,7 @@ code, pre {
 }
 
 h1 {
-  font-weight: 800;
+  font-weight: 200;
 }
 
 header {
@@ -36,7 +36,7 @@ header {
 main {
   margin-left: auto;
   margin-right: auto;
-  max-width: 1024px;
+  max-width: 80ch;
   padding: 1em;
   width: 100%;
 }
@@ -68,7 +68,7 @@ main {
   background-color: white;
   border: 2px solid var(--blue);
   border-radius: 1em;
-  margin-top: 4em;
+  margin: 2em 0;
   padding: 0.5em 2em 1em 2em;
 }
 
@@ -84,4 +84,25 @@ main {
 .postlist-date {
   font-size: 20px;
   padding-left: 0.5em;
+}
+
+@font-face {
+  font-family: Iosevka Aile Web;
+  font-weight: 200;
+  font-style: normal;
+  src:url("../fonts/iosevka-aile-extralight.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: Iosevka Aile Web;
+  font-weight: 400;
+  font-style: normal;
+  src:url("../fonts/iosevka-aile-regular.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: Iosevka Aile Web;
+  font-weight: 400;
+  font-style: italic;
+  src:url("../fonts/iosevka-aile-italic.woff2") format("woff2");
 }
