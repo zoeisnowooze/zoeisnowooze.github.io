@@ -15,18 +15,23 @@ body {
   background-color: var(--linen);
   color: var(--blue);
   display: flex;
-  font-family: Iosevka Aile Web,sans-serif;
+  font-family: Atkinson Hyperlegible,Iosevka Aile Web,sans-serif;
   font-size: 20px;
   line-height: 1.5;
   --moz-osx-font-smoothing: grayscale;
 }
 
 code, pre {
-  font-family: "IBM Plex Mono Semibold", monospace;
+  font-family: IBM Plex Mono,monospace;
+  font-weight: 600;
 }
 
 h1 {
   font-weight: 200;
+}
+
+h1, h2 {
+  font-family: Iosevka Aile Web,sans-serif;
 }
 
 header {
@@ -105,4 +110,18 @@ main {
   font-weight: 400;
   font-style: italic;
   src:url("../fonts/iosevka-aile-italic.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: Atkinson Hyperlegible;
+  font-weight: 400;
+  font-style: normal;
+  src:url("../fonts/AtkinsonHyperlegible-Regular.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: IBM Plex Mono;
+  font-weight: 600;
+  font-style: normal;
+  src:url("../fonts/IBMPlexMono-SemiBold.woff2") format("woff2");
 }
