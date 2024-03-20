@@ -1,4 +1,6 @@
 const { DateTime } = require("luxon");
+const markdownIt = require('markdown-it');
+const markdownItAttrs = require('markdown-it-attrs');
 const pluginSyntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
 
 module.exports = function(eleventyConfig) {
@@ -6,6 +8,10 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addPlugin(pluginSyntaxHighlight, {
     alwaysWrapLineHighlights: true,
   });
+
+  eleventyConfig.setLibrary('md', markdownIt({
+    html: true,
+  }).use(markdownItAttrs));
 
   // https://www.11ty.dev/docs/data-deep-merge/
   eleventyConfig.setDataDeepMerge(true);

@@ -14,11 +14,15 @@ a:link, a:visited {
 body {
   background-color: var(--linen);
   color: var(--blue);
-  display: flex;
+
   font-family: Atkinson Hyperlegible,Iosevka Aile Web,sans-serif;
   font-size: 20px;
   line-height: 1.5;
   --moz-osx-font-smoothing: grayscale;
+
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
 }
 
 code, pre {
@@ -34,13 +38,10 @@ h1, h2 {
   font-family: Iosevka Aile Web,sans-serif;
 }
 
-header {
-  display: flex;
-}
-
 main {
   margin-left: auto;
   margin-right: auto;
+  min-width: 20ch;
   max-width: 80ch;
   padding: 1em;
   width: 100%;
@@ -91,6 +92,82 @@ main {
   padding-left: 0.5em;
 }
 
+.home {
+  font-size: 1.5rem;
+  font-weight: 600;
+  padding: 1em;
+}
+
+.tmpl-post table {
+  font-family: IBM Plex Mono, monospace;
+  font-weight: 400;
+  font-size: 0.9rem;
+  overflow: auto;
+  white-space: wrap;
+  margin: 0;
+  padding: 0.2em 0.5em;
+  border-collapse: collapse;
+  border-spacing: 0;
+  border-color: var(--blue);
+  border-style: solid;
+  border-width: 0;
+  max-width: unset;
+}
+
+.tmpl-post table :is(thead, tbody) {
+  border-color: inherit;
+  border-style: inherit;
+  border-width: 0;
+}
+
+.tmpl-post table thead {
+  border-color: var(--blue);
+}
+
+.tmpl-post table th {
+  font-weight: 600;
+  border-width: 0 0 2px;
+}
+
+.tmpl-post table tr {
+  border-color: inherit;
+  border-style: inherit;
+  border-width: 0;
+}
+
+.tmpl-post table td {
+  border-width: 0 0 1px;
+}
+
+.tmpl-post table :is(th, td) {
+  border-color: inherit;
+  border-style: inherit;
+  background: transparent;
+  width: fit-content;
+  min-width: 100px;
+  padding: 0.5rem;
+}
+
+.tmpl-post table :is(th, td):not([align]) {
+  text-align: left;
+}
+
+.tmpl-post table tr:nth-child(2n) {
+  background: #eaecf8;
+}
+
+.tmpl-post table tr:hover {
+  background: #c1c6ea;
+}
+
+.content-image {
+  display: block;
+  max-width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+  box-shadow: 3px 3px 6px 0 rgba(0, 0, 0, 0.2);
+}
+
 @font-face {
   font-family: Iosevka Aile Web;
   font-weight: 200;
@@ -124,4 +201,11 @@ main {
   font-weight: 600;
   font-style: normal;
   src:url("../fonts/IBMPlexMono-SemiBold.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: IBM Plex Mono;
+  font-weight: 400;
+  font-style: normal;
+  src:url("../fonts/IBMPlexMono-Regular.woff2") format("woff2");
 }
