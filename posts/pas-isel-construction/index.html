@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dwyfor Tech Pas-Isel construction</title>
+    <meta name="description" content="">
+    <link type="text/plain" rel="author" href="/humans.txt" />
+    <link rel="stylesheet" href="/css/index.css">
+    <link rel="stylesheet" href="/css/prism-witchhazel.hypercolor.css">
+  </head>
+  <body>
+    <header>
+      <h1 class="home"><a href="/">Zoé&#39;s Blorp Devices</a></h1>
+    </header>
+
+    <main class="tmpl-post">
+      <h1>Dwyfor Tech Pas-Isel construction</h1>
+
+<time datetime="2024-03-19">19 Mar 2024</time>
+
+<p>The <a href="https://reverb.com/ca/shop/dwyfortech">Pas-Isel low-pass filter</a> is the first Eurorack module designed by Dwyfor Tech.
+It is sold as either a full DIY kit, or just the PCB and front panel. I bought the basic self-source set, considering that I already had
+most of the parts to build it in stock. It is designed mostly with very common parts, which make the DIY option affordable
+for anyone who has been accumulating tubes of TL074 op-amps over time.</p>
+<h2>Sourcing the materials</h2>
+<p>The original bill of materials indicates part numbers for Mouser and Thonk. However, when I purchase from those vendors, the package goes
+across borders. That leads to longer delivery times and that usually triggers significant duty charges. On the other hand, I'm confident
+that I can source most parts from Digi-Key, who offer free shipping with all duties paid. The Alpha potentiometers and trimmers still
+need to be purchased from Thonk as no alternatives are available.</p>
+<h3>Equivalences and substitutions</h3>
+<p>Every metal film resistor has been replaced from parts with a 600 mW power rating to 250 mW. The resistors that need to carry more current
+are probably the voltage dividers on the control board, and those will never have to dissipate over 100 mW. The 250 mW (often referred to
+as 1/4 W) have been much more common in my past projects.</p>
+<p>The attributes of the 22 pF ceramic capacitor were not specified, but anything with a <code>C0G</code> temperature coefficient and 5 mm between leads seemed
+like an appropriate choice. I used whatever I had in stock for the 100 nF decoupling capacitors. However, the exact part number has been lost long ago.</p>
+<p>The 1 nF film capacitors I had in stock were the classic AVX yellow boxes. I still have those in large quantity for a wide range of values. I'm glad
+I can get some to be used in a project. However, they are now obsolete and have been replaced by equivalent parts from EPCOS. I have specified those
+replacements in the bill of materials below.</p>
+<p>The power header has been replaced by a keyed shrouded header. It barely touches the yellow box capacitor next to it. This is the part I already
+had in stock, so there was no reason to source a non-keyed header. Be aware that this might increase the required depth of the module.</p>
+<p>The 1N5819 Schottky diode have been replaced by 1N5818. The reverse voltage is 30 V instead of 40 V, which will still allow adequate protection.
+I used whatever ferrite beads I had in stock, which is now obsolete and unavailable. I would suggest looking for other, potentially more appropriate options.</p>
+<p>At the time of placing the order at Thonk for the potentiometers, the 100 kΩ trimmer potentiometers went out of stock. Synthcube didn't have any
+left in stock, either. Other places would sell them, but at ridiculous prices when delivery was added to the price. After having shared my frustration
+on the Winterbloom discord server, we agreed that the 50 kΩ potentiometer would probably play the role correctly.</p>
+<p>On the audio jacks, I mounted hex instead of knurled nuts.</p>
+<p>I strongly do not recommend substituting the TL074 op-amp ICs with SM74HC04. For some reason, they do not handle 24 V between some pins very well. This is
+what happens when a tube has been placed in the wrong anti-static back (maybe 15 years ago), I'm sick, and my brain is foggy. Again, strongly not recommended.</p>
+<h3>Bill of materials</h3>
+<p>Strongly influenced by the <a href="https://helium.wntr.dev/self-source-build/">Winterbloom Helium self-source guide</a>, here's an alternative bill of materials
+for Pas-Isel:</p>
+<h4>Main board</h4>
+<p><img src="/img/pas-isel-main-board.jpg" alt="The main board of Pas-Isel, IC sockets still empty" class="content-image"></p>
+<table>
+<thead>
+<tr>
+<th>Reference</th>
+<th>Value &amp; Rating</th>
+<th style="text-align:right">Qty</th>
+<th>Part no</th>
+<th>Digi-Key</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>C1, C2</td>
+<td>10µF 35V/±20%</td>
+<td style="text-align:right">2</td>
+<td>Panasonic ECE-A1VKS100</td>
+<td><a href="https://www.digikey.com/en/products?keywords=P980-ND">P980-ND</a></td>
+</tr>
+<tr>
+<td>C3, C4, C6, C7, C9, C10</td>
+<td>100nF 50V/±5%/X7R</td>
+<td style="text-align:right">6</td>
+<td><em>various</em></td>
+<td></td>
+</tr>
+<tr>
+<td>C5, C11, C13, C15</td>
+<td>22pF 50V/±5%/C0G</td>
+<td style="text-align:right">4</td>
+<td>Vishay K220J10C0GF5UH5</td>
+<td><a href="https://www.digikey.com/en/products?keywords=BC5230CT-ND">BC5230CT-ND</a></td>
+</tr>
+<tr>
+<td>C8, C12, C14, C16</td>
+<td>1n 63V/±5%</td>
+<td style="text-align:right">4</td>
+<td>EPCOS B32529C0102J000</td>
+<td><a href="https://www.digikey.com/en/products?keywords=495-1091-ND">495-10910ND</a></td>
+</tr>
+<tr>
+<td>R1, R3, R10, R12</td>
+<td>47kΩ 250mW/±1%</td>
+<td style="text-align:right">4</td>
+<td>Yageo MFR-25FTE52-47K</td>
+<td><a href="https://www.digikey.com/en/products?keywords=13-MFR-25FTE52-47KCT-ND">13-MFR-25FTE52-47KCT-ND</a></td>
+</tr>
+<tr>
+<td>R2</td>
+<td>10kΩ 250mW/±1%</td>
+<td style="text-align:right">1</td>
+<td>Yageo MFR-25FTE52-10K</td>
+<td><a href="https://www.digikey.com/en/products?keywords=13-MFR-25FTE52-10KCT-ND">13-MFR-25FTE52-10KCT-ND</a></td>
+</tr>
+<tr>
+<td>R4, R8, R13, R17</td>
+<td>2.2kΩ 250mW/±1%</td>
+<td style="text-align:right">4</td>
+<td>Yageo MFR-25FTE52-2K2</td>
+<td><a href="https://www.digikey.com/en/products?keywords=13-MFR-25FTE52-2K2CT-ND">13-MFR-25FTE52-2K2CT-ND</a></td>
+</tr>
+<tr>
+<td>R5-R7, R9, R11, R15, R16, R18</td>
+<td>100kΩ 250mW/±1%</td>
+<td style="text-align:right">8</td>
+<td>Yageo MFR-25FTE52-100K</td>
+<td><a href="https://www.digikey.com/en/products?keywords=13-MFR-25FTE52-100KCT-ND">13-MFR-25FTE52-100KCT-ND</a></td>
+</tr>
+<tr>
+<td>R14</td>
+<td>150kΩ 250mW/±1%</td>
+<td style="text-align:right">1</td>
+<td>Yageo MFR-25FTE52-150K</td>
+<td><a href="https://www.digikey.com/en/products?keywords=13-MFR-25FTE52-150KCT-ND">13-MFR-25FTE52-150KCT-ND</a></td>
+</tr>
+<tr>
+<td>FB1, FB2</td>
+<td>-</td>
+<td style="text-align:right">2</td>
+<td>Murata BL01RN1A1F1J</td>
+<td><a href="https://www.digikey.com/en/products?keywords=490-10999-2-ND">490-10999-2-ND</a></td>
+</tr>
+<tr>
+<td>D1, D2</td>
+<td>Schottky 30V/1A</td>
+<td style="text-align:right">2</td>
+<td>Vishay 1N5818-E3/73</td>
+<td><a href="https://www.digikey.com/en/products?keywords=112-1N5818-E3/73CT-ND">112-1N5818-E3/73CT-ND</a></td>
+</tr>
+<tr>
+<td>D3-D16</td>
+<td>1N4148</td>
+<td style="text-align:right">14</td>
+<td>MCC 1N4148-TP</td>
+<td><a href="https://www.digikey.com/en/products?keywords=1N4148-TPMSTR-ND">1N4148-TPMSTR-ND</a></td>
+</tr>
+<tr>
+<td>U1-U3</td>
+<td>TL074</td>
+<td style="text-align:right">3</td>
+<td>TI TL074IN</td>
+<td><a href="https://www.digikey.com/en/products?keywords=296-7200-5-ND">296-7200-5-ND</a></td>
+</tr>
+<tr>
+<td>J1, J3</td>
+<td>1x4 2.54 Header</td>
+<td style="text-align:right">2</td>
+<td>Samtec TLW10405TS</td>
+<td><a href="https://www.digikey.com/en/products?keywords=SAM1099-04-ND">SAM1099-04-ND</a></td>
+</tr>
+<tr>
+<td>J2</td>
+<td>2x5 2.54mm IDC Header</td>
+<td style="text-align:right">1</td>
+<td>Würth 61201021621</td>
+<td><a href="https://www.digikey.com/en/products?keywords=732-2094-ND">732-2094-ND</a></td>
+</tr>
+<tr>
+<td>RV1</td>
+<td>100kΩ 25-turn Trimmer</td>
+<td style="text-align:right">1</td>
+<td>Bourns 3266W-1-104</td>
+<td><a href="https://www.digikey.com/en/products?keywords=3266W-104-ND">3266W-104-ND</a></td>
+</tr>
+</tbody>
+</table>
+<h4>Control board</h4>
+<table>
+<thead>
+<tr>
+<th>Reference</th>
+<th>Value &amp; Rating</th>
+<th style="text-align:right">Qty</th>
+<th>Part no</th>
+<th>Digi-Key</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>C1, C2</td>
+<td>1µF 63V/±5%</td>
+<td style="text-align:right">2</td>
+<td>EPCOS B32529C0105J0000</td>
+<td><a href="https://www.digikey.com/en/products?keywords=495-1119-ND">495-1119-ND</a></td>
+</tr>
+<tr>
+<td>R1, R2</td>
+<td>150kΩ 250mW/±1%</td>
+<td style="text-align:right">2</td>
+<td>Yageo MFR-25FTE52-150K</td>
+<td><a href="https://www.digikey.com/en/products?keywords=13-MFR-25FTE52-150KCT-ND">13-MFR-25FTE52-150KCT-ND</a></td>
+</tr>
+<tr>
+<td>R3, R5</td>
+<td>100kΩ 250mW/±1%</td>
+<td style="text-align:right">2</td>
+<td>Yageo MFR-25FTE52-100K</td>
+<td><a href="https://www.digikey.com/en/products?keywords=13-MFR-25FTE52-100KCT-ND">13-MFR-25FTE52-100KCT-ND</a></td>
+</tr>
+<tr>
+<td>R4</td>
+<td>68kΩ 250mW/±1%</td>
+<td style="text-align:right">1</td>
+<td>Yageo MFR-25FTE52-68K</td>
+<td><a href="https://www.digikey.com/en/products?keywords=13-MFR-25FTE52-68KCT-ND">13-MFR-25FTE52-68KCT-ND</a></td>
+</tr>
+<tr>
+<td>R6</td>
+<td>22kΩ 250mW/±1%</td>
+<td style="text-align:right">1</td>
+<td>Yageo MFR-25FTE52-22K</td>
+<td><a href="https://www.digikey.com/en/products?keywords=13-MFR-25FTE52-22KCT-ND">13-MFR-25FTE52-22KCT-ND</a></td>
+</tr>
+<tr>
+<td>R7</td>
+<td>200kΩ 250mW/±1%</td>
+<td style="text-align:right">1</td>
+<td>Yageo MFR-25FTE52-200K</td>
+<td><a href="https://www.digikey.com/en/products?keywords=13-MFR-25FTE52-200KCT-ND">13-MFR-25FTE52-200KCT-ND</a></td>
+</tr>
+<tr>
+<td>R8</td>
+<td>47kΩ 250mW/±1%</td>
+<td style="text-align:right">4</td>
+<td>Yageo MFR-25FTE52-47K</td>
+<td><a href="https://www.digikey.com/en/products?keywords=13-MFR-25FTE52-47KCT-ND">13-MFR-25FTE52-47KCT-ND</a></td>
+</tr>
+<tr>
+<td>J1-J3, J5</td>
+<td>Audio jack</td>
+<td style="text-align:right">4</td>
+<td>WQP-PJ398SM</td>
+<td>Available from <a href="https://www.thonk.co.uk/shop/thonkiconn/">Thonk</a></td>
+</tr>
+<tr>
+<td>J4, J6</td>
+<td>1x4 2.54mm Receptacle</td>
+<td style="text-align:right">2</td>
+<td>Samtec SLW1040TS</td>
+<td><a href="https://www.digikey.com/en/products?keywords=SAM1093-04-ND">SAM1093-04-ND</a></td>
+</tr>
+<tr>
+<td>RV1, RV2</td>
+<td>50kΩ/Linear Trimmer potentiometer</td>
+<td style="text-align:right">2</td>
+<td>Song Huiei R0904-B50K,L-25KQ</td>
+<td>Available from <a href="https://www.thonk.co.uk/shop/ttpots/">Thonk</a></td>
+</tr>
+<tr>
+<td>RV3, RV4</td>
+<td>100kΩ/Linear Potentiometer</td>
+<td style="text-align:right">2</td>
+<td>Alpha RD901F-40-15R1-B100K</td>
+<td>Available from <a href="https://www.thonk.co.uk/shop/alpha-9mm-pots/">Thonk</a></td>
+</tr>
+<tr>
+<td>RV5</td>
+<td>100kΩ 25-turn Trimmer</td>
+<td style="text-align:right">1</td>
+<td>Bourns 3296W-1-104</td>
+<td><a href="https://www.digikey.com/en/products?keywords=3296W-104-ND">3296W-104-ND</a></td>
+</tr>
+</tbody>
+</table>
+<h4>Assembly hardware</h4>
+<table>
+<thead>
+<tr>
+<th>Description</th>
+<th style="text-align:right">Qty</th>
+<th>Part no</th>
+<th>Digi-Key</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>M3 0.250&quot; Standoff</td>
+<td style="text-align:right">5</td>
+<td>Essentra MTS-6</td>
+<td><a href="https://www.digikey.com/en/products?keywords=RPC4428-ND">RPC4428-ND</a></td>
+</tr>
+<tr>
+<td>M3 Screw</td>
+<td style="text-align:right">10</td>
+<td>Würth 97790403111</td>
+<td><a href="https://www.digikey.com/en/products?keywords=732-13702-ND">732-13702-ND</a></td>
+</tr>
+</tbody>
+</table>
+<h2>Building the module</h2>
+<p>After reading all the steps from the build guide, I assumed it was safe to solder every passive component on both boards first, then
+thoroughly clean up all the water-soluble flux. I could then solder the potentiometers and jacks with no-clean solder, and finally
+inserting the ICs into the sockets.</p>
+<p>Instead of using the excellent rubber band method for assembling the panel components, I screwed hex nuts on the potentiometers and
+some audio jacks. It works just as well because the board connectors are solid enough to prevent the PCBs and front panel from
+separating.</p>
+<h2>Final steps</h2>
+<p>My test setup has everything I need to power up a single module easily with <a href="https://winterbloom.com/shop/micronova">Winterbloom Micronova</a> Eurorack power supply and
+a <a href="https://joranalogue.com/collections/eurorack/products/test-3">Joranalogue Test 3</a> module. The initial test and the calibration procedure turned out to be tricky to
+perform because I'm not prepared to hook a signal from an output jack into the oscilloscope. A couple test points would have certainly helped here. I cut a Cre8audio
+cable (sorry, they're just not great) open and attached the oscilloscope probe to the wires. I yet have to calibrate the V/oct pitch control, but that shouldn't be too
+difficult if I patch it from a Mutant Brain.</p>
+
+<hr>
+<ul><li>Previous: <a href="/posts/aventures-de-changement-de-nom/">Aventures de changement de nom</a></li>
+</ul>
+
+    </main>
+  </body>
+</html>
