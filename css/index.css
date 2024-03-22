@@ -1,6 +1,23 @@
 :root {
-  --blue: #3242bc;
-  --linen: #faf2ed;
+  --color-background: var(--color-linen);
+  --color-border: var(--color-blue);
+  --color-row-alternating: var(--color-blue-lighter);
+  --color-row-highlight: var(--color-blue-light);
+  --color-text: var(--color-blue);
+
+  --font-code: var(--font-ibm-plex-mono), monospace;
+  --font-display: var(--font-iosevka-aile), sans-serif;
+  --font-tabular: var(--font-ibm-plex-mono), monospace;
+  --font-text: var(--font-atkinson), var(--font-iosevka-aile), sans-serif;
+
+  --color-blue: #3242bc;
+  --color-blue-light: #c1c6ea;
+  --color-blue-lighter: #eaecf8;
+  --color-linen: #faf2ed;
+
+  --font-atkinson: Atkinson Hyperlegible;
+  --font-ibm-plex-mono: IBM Plex Mono;
+  --font-iosevka-aile: Iosevka Aile Web;
 }
 
 * {
@@ -8,14 +25,14 @@
 }
 
 a:link, a:visited {
-  color: var(--blue);
+  color: var(--color-text);
 }
 
 body {
-  background-color: var(--linen);
-  color: var(--blue);
+  background-color: var(--color-background);
+  color: var(--color-text);
 
-  font-family: Atkinson Hyperlegible,Iosevka Aile Web,sans-serif;
+  font-family: var(--font-text);
   font-size: 20px;
   line-height: 1.5;
   --moz-osx-font-smoothing: grayscale;
@@ -26,7 +43,7 @@ body {
 }
 
 code, pre {
-  font-family: IBM Plex Mono,monospace;
+  font-family: var(--font-code);
   font-weight: 600;
 }
 
@@ -35,7 +52,7 @@ h1 {
 }
 
 h1, h2 {
-  font-family: Iosevka Aile Web,sans-serif;
+  font-family: var(--font-display);
 }
 
 main {
@@ -72,7 +89,7 @@ main {
 
 .posts {
   background-color: white;
-  border: 2px solid var(--blue);
+  border: 2px solid var(--color-border);
   border-radius: 1em;
   margin: 2em 0;
   padding: 0.5em 2em 1em 2em;
@@ -99,19 +116,21 @@ main {
 }
 
 .tmpl-post table {
-  font-family: IBM Plex Mono, monospace;
+  font-family: var(--font-tabular);
   font-weight: 400;
   font-size: 0.9rem;
+
   overflow: auto;
   white-space: wrap;
   margin: 0;
   padding: 0.2em 0.5em;
+  max-width: unset;
+
   border-collapse: collapse;
   border-spacing: 0;
-  border-color: var(--blue);
+  border-color: var(--color-border);
   border-style: solid;
   border-width: 0;
-  max-width: unset;
 }
 
 .tmpl-post table :is(thead, tbody) {
@@ -121,7 +140,7 @@ main {
 }
 
 .tmpl-post table thead {
-  border-color: var(--blue);
+  border-color: var(--color-border);
 }
 
 .tmpl-post table th {
@@ -153,11 +172,11 @@ main {
 }
 
 .tmpl-post table tr:nth-child(2n) {
-  background: #eaecf8;
+  background: var(--color-row-alternating);
 }
 
 .tmpl-post table tr:hover {
-  background: #c1c6ea;
+  background: var(--color-row-highlight);
 }
 
 .content-image {
@@ -170,6 +189,7 @@ main {
 
 @font-face {
   font-family: Iosevka Aile Web;
+  font-display: fallback;
   font-weight: 200;
   font-style: normal;
   src:url("../fonts/iosevka-aile-extralight.woff2") format("woff2");
@@ -177,6 +197,7 @@ main {
 
 @font-face {
   font-family: Iosevka Aile Web;
+  font-display: fallback;
   font-weight: 400;
   font-style: normal;
   src:url("../fonts/iosevka-aile-regular.woff2") format("woff2");
@@ -184,6 +205,7 @@ main {
 
 @font-face {
   font-family: Iosevka Aile Web;
+  font-display: fallback;
   font-weight: 400;
   font-style: italic;
   src:url("../fonts/iosevka-aile-italic.woff2") format("woff2");
@@ -191,6 +213,7 @@ main {
 
 @font-face {
   font-family: Atkinson Hyperlegible;
+  font-display: fallback;
   font-weight: 400;
   font-style: normal;
   src:url("../fonts/AtkinsonHyperlegible-Regular.woff2") format("woff2");
@@ -198,6 +221,7 @@ main {
 
 @font-face {
   font-family: IBM Plex Mono;
+  font-display: fallback;
   font-weight: 600;
   font-style: normal;
   src:url("../fonts/IBMPlexMono-SemiBold.woff2") format("woff2");
@@ -205,6 +229,7 @@ main {
 
 @font-face {
   font-family: IBM Plex Mono;
+  font-display: fallback;
   font-weight: 400;
   font-style: normal;
   src:url("../fonts/IBMPlexMono-Regular.woff2") format("woff2");
