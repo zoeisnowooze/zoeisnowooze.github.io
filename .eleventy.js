@@ -3,7 +3,7 @@ const markdownIt = require('markdown-it');
 const markdownItAttrs = require('markdown-it-attrs');
 const pluginSyntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
 
-module.exports = function(eleventyConfig) {
+module.exports = async function(eleventyConfig) {
   // Add plugins
   eleventyConfig.addPlugin(pluginSyntaxHighlight, {
     alwaysWrapLineHighlights: true,
