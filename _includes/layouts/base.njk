@@ -15,7 +15,7 @@
   </head>
   <body>
     <header>
-      <h1 class="home"><a href="{{ '/' | url }}">{{ metadata.title }}</a></h1>
+      <div class="home"><a href="{{ '/' | htmlBaseUrl }}">Back to home page</a></div>
     </header>
 
     <main{% if templateClass %} class="{{ templateClass }}"{% endif %}>

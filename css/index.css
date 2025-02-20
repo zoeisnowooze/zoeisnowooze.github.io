@@ -38,7 +38,7 @@ body {
   --moz-osx-font-smoothing: grayscale;
 
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   flex-wrap: wrap;
 }
 
@@ -47,16 +47,39 @@ code, pre {
   font-weight: 600;
 }
 
+pre {
+  border-radius: 1em;
+}
+
 h1 {
   font-weight: 200;
 }
 
 h1, h2 {
   font-family: var(--font-display);
+  margin: 1.5em 0 0.5em 0;
+}
+
+h3 {
+  margin: 1.5em 0 0em 0;
+}
+
+h4 {
+  margin: 1.25em 0 0.25em 0;
+}
+
+hr {
+  border: 0.1em solid var(--color-border);
+  margin: 3em 0 0.5em 0;
 }
 
 dt {
   font-weight: 600;
+}
+
+header {
+  display: flex;
+  align-items: flex-start;
 }
 
 main {
@@ -93,10 +116,11 @@ main {
 
 .posts {
   background-color: white;
-  border: 2px solid var(--color-border);
+  border: 0.1em solid var(--color-border);
+  border-bottom: 0.5em solid;
   border-radius: 1em;
   margin: 2em 0;
-  padding: 0.5em 2em 1em 2em;
+  padding: 0em 2em 1em 2em;
 }
 
 .postlist {
@@ -114,9 +138,14 @@ main {
 }
 
 .home {
-  font-size: 1.5rem;
+  background-color: white;
+  border: 0.1em solid var(--color-border);
+  border-bottom: 0.5em solid;
+  border-radius: 1em;
+  padding: 0.5em 1em 0.5em 1em;
+  margin: 1em;
+  font-size: 1rem;
   font-weight: 600;
-  padding: 1em;
 }
 
 .tmpl-post table {
