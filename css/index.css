@@ -55,6 +55,10 @@ h1, h2 {
   font-family: var(--font-display);
 }
 
+dt {
+  font-weight: 600;
+}
+
 main {
   margin-left: auto;
   margin-right: auto;

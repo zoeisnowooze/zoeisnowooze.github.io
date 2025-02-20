@@ -10,9 +10,8 @@
     <meta property="og:description" content="{{ description or renderData.description | escape }}">
     <meta property="og:image" content="/img/avatar.jpg">
     <meta property="og:type" content="article">
-    <link type="text/plain" rel="author" href="/humans.txt" />
-    <link rel="stylesheet" href="{{ '/css/index.css' | url }}">
-    <link rel="stylesheet" href="{{ '/css/prism-witchhazel.hypercolor.css' | url }}">
+    <link rel="stylesheet" href="{{ '/css/index.css' | htmlBaseUrl }}">
+    <link rel="stylesheet" href="{{ '/css/prism-witchhazel.hypercolor.css' | htmlBaseUrl }}">
   </head>
   <body>
     <header>

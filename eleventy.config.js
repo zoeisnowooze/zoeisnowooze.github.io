@@ -1,13 +1,16 @@
-const { DateTime } = require("luxon");
-const markdownIt = require('markdown-it');
-const markdownItAttrs = require('markdown-it-attrs');
-const pluginSyntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
+import { DateTime } from "luxon";
+import markdownIt from "markdown-it";
+import markdownItAttrs from "markdown-it-attrs";
+import syntaxHighlight from "@11ty/eleventy-plugin-syntaxhighlight";
+import { HtmlBasePlugin } from "@11ty/eleventy";
 
-module.exports = async function(eleventyConfig) {
+export default function (eleventyConfig) {
   // Add plugins
-  eleventyConfig.addPlugin(pluginSyntaxHighlight, {
+  eleventyConfig.addPlugin(syntaxHighlight, {
     alwaysWrapLineHighlights: true,
   });
+
+  eleventyConfig.addPlugin(HtmlBasePlugin);
 
   eleventyConfig.setLibrary('md', markdownIt({
     html: true,
