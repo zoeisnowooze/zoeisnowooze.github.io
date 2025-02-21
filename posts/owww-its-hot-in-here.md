@@ -3,6 +3,7 @@ layout: post
 date: 2008-06-28
 title: Owww! It's hot in here!
 ---
+
 I checked the current weather on the Web to make sure that the very high
 humidity was not a product of my imagination. Some clothes from this morning's
 laundry have been hanged but at this rate they are not even close to be dry

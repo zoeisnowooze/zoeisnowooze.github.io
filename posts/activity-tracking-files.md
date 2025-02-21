@@ -3,6 +3,7 @@ layout: post
 date: 2018-06-14
 title: Editing and analyzing activity tracking files
 ---
+
 A month ago I started running with a GPS watch and a footpod, but kept the GPS feature off. A
 footpod is a small device that sits on top of my foot and tracks movements. For the particular watch model I own,
 turning the GPS off means that it will record my speed and distance from the foodpod data instead of using my
@@ -17,7 +18,6 @@ on social sites like Strava. Unfortunately, if I turn off the GPS during a run I
 in the case of Strava, many core features of the site like segments are lost. That's really unfortunate, so I started
 looking for a way to add back maps to my footpod runs.
 
-
 ## What an activity track file looks like
 
 Sport trackers will store activity data in the form of FIT, TCX, or GPX files. There's usually a way to copy those files
@@ -29,7 +29,7 @@ content is not readable and requires decoding software. There are code libraries
 The TCX format is very similar but is actually readable. If you have access to a TCX file, you can open it in a text
 editor of your choice and you'll see information presented in a quirky format, called XML:
 
-```xml 
+```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <TrainingCenterDatabase xsi:schemaLocation="http://www.garmin.com/xmlschemas/TrainingCenterDatabase/v2 http://www.garmin.com/xmlschemas/TrainingCenterDatabasev2.xsd" xmlns:ns5="http://www.garmin.com/xmlschemas/ActivityGoals/v1" xmlns:ns3="http://www.garmin.com/xmlschemas/ActivityExtension/v2" xmlns:ns2="http://www.garmin.com/xmlschemas/UserProfile/v2" xmlns="http://www.garmin.com/xmlschemas/TrainingCenterDatabase/v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
  <Activities>
@@ -61,7 +61,6 @@ is that all the content between this tag and the end tag `</Activity>` at the bo
 particular a _running_ activity. In the middle of the example, you'll find heart rate information that is given in the
 context of that activity.
 
-
 ## Reading files with a computer program
 
 Editing long sequence of XML tags by hand would be terribly tedious, so we should rely on computer programs to automate
@@ -70,7 +69,6 @@ libraries available. For FIT files, the package `fitparse` can be used. There ar
 I recommend using a virtualenv if you know how to create them, otherwise it's probably safe to install the package for
 yourself by using a command line such as `pip install --user fitparse`. TCX files can be read with only the standard
 packages that come with the language.
-
 
 ### Reading the FIT file
 
@@ -189,7 +187,6 @@ You can probably run this program, copy the printed output into a new TCX file a
 activity tracking site. It will show yourself having just finished an 1-second activity where you were probably
 standing up in the air, in the middle of an ocean. What a workout!
 
-
 ## Putting it all together
 
 Now comes the long and experimental part where we reverse engineer a FIT file containing a real run (the one recorded
@@ -201,7 +198,6 @@ Hopefully there's a trick. From either Garmin Connect or Strava, there's the opt
 FIT file, but also an equivalent TCX file. This way we can basically try to reproduce that TCX file as closely as
 possible, with only the addition of the `Position` tags.
 
-
 ### Interpolating positions
 
 Once the mechanics of reading and writing activity tracking files was well understood, the challenge was to find a way to
@@ -210,19 +206,19 @@ file don't match. For example, the route may have the position for every meter a
 so the distance will probably fall between two exact meter values. We need to figure out a technique that gives us the
 closest value from the route file as we go through the activity records.
 
-  1. Pick the first position in the route. Call this position "behind".
-  2. Pick the next position in the route. Call this position "ahead". It doesn't matter if it's ahead of anything for now.
-  3. Compare the current distance with the "ahead" position.
-     - If "ahead" is not ahead of that distance, make "ahead" the new "behind" and pick the next position from the
-        route. Repeat until this isn't true anymore.
-     - If "ahead" is really ahead of that distance, we found two consecutive positions on the route that are just
-       around the current runner's position.
-  4. Calculate the fraction of the distance between the "behind" and the "ahead" positions. Zero would mean that the
-     runner is exactly at the same distance as "behind". One would mean that they're exactly where "ahead" is. One
-     half falls right in the middle of the two positions.
-  5. Assume the Earth is flat for a second.
-  6. Take each coordinate of the "behind" point and add to it a fraction of the difference between the coordinates of
-     the "ahead" and "behind" positions, using the fraction calculated before. For example, if the fraction is one
-     half, calculate "longitude behind + ½ (longitude ahead − longitude behind)". Do the same for the latitude and
-     you've got the approximate position of the runner.
-  7. Repeat all steps from 3 with the next record.
+1. Pick the first position in the route. Call this position "behind".
+2. Pick the next position in the route. Call this position "ahead". It doesn't matter if it's ahead of anything for now.
+3. Compare the current distance with the "ahead" position.
+   - If "ahead" is not ahead of that distance, make "ahead" the new "behind" and pick the next position from the
+     route. Repeat until this isn't true anymore.
+   - If "ahead" is really ahead of that distance, we found two consecutive positions on the route that are just
+     around the current runner's position.
+4. Calculate the fraction of the distance between the "behind" and the "ahead" positions. Zero would mean that the
+   runner is exactly at the same distance as "behind". One would mean that they're exactly where "ahead" is. One
+   half falls right in the middle of the two positions.
+5. Assume the Earth is flat for a second.
+6. Take each coordinate of the "behind" point and add to it a fraction of the difference between the coordinates of
+   the "ahead" and "behind" positions, using the fraction calculated before. For example, if the fraction is one
+   half, calculate "longitude behind + ½ (longitude ahead − longitude behind)". Do the same for the latitude and
+   you've got the approximate position of the runner.
+7. Repeat all steps from 3 with the next record.

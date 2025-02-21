@@ -12,9 +12,12 @@ export default function (eleventyConfig) {
 
   eleventyConfig.addPlugin(HtmlBasePlugin);
 
-  eleventyConfig.setLibrary('md', markdownIt({
-    html: true,
-  }).use(markdownItAttrs));
+  eleventyConfig.setLibrary(
+    "md",
+    markdownIt({
+      html: true,
+    }).use(markdownItAttrs),
+  );
 
   // https://www.11ty.dev/docs/data-deep-merge/
   eleventyConfig.setDataDeepMerge(true);
@@ -22,16 +25,18 @@ export default function (eleventyConfig) {
   // Alias `layout: post` to `layout: layouts/post.njk`
   eleventyConfig.addLayoutAlias("post", "layouts/post.njk");
 
-  eleventyConfig.addFilter("readableDate", dateObj => {
-    return DateTime.fromJSDate(dateObj, {zone: 'utc'}).toFormat("dd LLL yyyy");
+  eleventyConfig.addFilter("readableDate", (dateObj) => {
+    return DateTime.fromJSDate(dateObj, { zone: "utc" }).toFormat(
+      "dd LLL yyyy",
+    );
   });
 
   // https://html.spec.whatwg.org/multipage/common-microsyntaxes.html#valid-date-string
-  eleventyConfig.addFilter('htmlDateString', (dateObj) => {
-    return DateTime.fromJSDate(dateObj, {zone: 'utc'}).toFormat('yyyy-LL-dd');
+  eleventyConfig.addFilter("htmlDateString", (dateObj) => {
+    return DateTime.fromJSDate(dateObj, { zone: "utc" }).toFormat("yyyy-LL-dd");
   });
 
-  eleventyConfig.addCollection("posts", function(collectionApi) {
+  eleventyConfig.addCollection("posts", function (collectionApi) {
     return collectionApi.getFilteredByTag("posts");
   });
 
@@ -42,13 +47,9 @@ export default function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy({ "well-known": ".well-known" });
 
   return {
-    templateFormats: [
-      "md",
-      "njk",
-      "txt"
-    ],
+    templateFormats: ["md", "njk", "txt"],
     markdownTemplateEngine: "njk",
     htmlTemplateEngine: "njk",
-    dataTemplateEngine: false
+    dataTemplateEngine: false,
   };
-};
+}

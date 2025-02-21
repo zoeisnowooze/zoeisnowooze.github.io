@@ -24,7 +24,8 @@
   box-sizing: border-box;
 }
 
-a:link, a:visited {
+a:link,
+a:visited {
   color: var(--color-text);
 }
 
@@ -42,7 +43,8 @@ body {
   flex-wrap: wrap;
 }
 
-code, pre {
+code,
+pre {
   font-family: var(--font-code);
   font-weight: 600;
 }
@@ -55,7 +57,8 @@ h1 {
   font-weight: 200;
 }
 
-h1, h2 {
+h1,
+h2 {
   font-family: var(--font-display);
   margin: 1.5em 0 0.5em 0;
 }
@@ -225,7 +228,7 @@ main {
   font-display: fallback;
   font-weight: 200;
   font-style: normal;
-  src:url("../fonts/iosevka-aile-extralight.woff2") format("woff2");
+  src: url("../fonts/iosevka-aile-extralight.woff2") format("woff2");
 }
 
 @font-face {
@@ -233,7 +236,7 @@ main {
   font-display: fallback;
   font-weight: 400;
   font-style: normal;
-  src:url("../fonts/iosevka-aile-regular.woff2") format("woff2");
+  src: url("../fonts/iosevka-aile-regular.woff2") format("woff2");
 }
 
 @font-face {
@@ -241,7 +244,7 @@ main {
   font-display: fallback;
   font-weight: 400;
   font-style: italic;
-  src:url("../fonts/iosevka-aile-italic.woff2") format("woff2");
+  src: url("../fonts/iosevka-aile-italic.woff2") format("woff2");
 }
 
 @font-face {
@@ -249,7 +252,7 @@ main {
   font-display: fallback;
   font-weight: 400;
   font-style: normal;
-  src:url("../fonts/AtkinsonHyperlegible-Regular.woff2") format("woff2");
+  src: url("../fonts/AtkinsonHyperlegible-Regular.woff2") format("woff2");
 }
 
 @font-face {
@@ -257,7 +260,7 @@ main {
   font-display: fallback;
   font-weight: 600;
   font-style: normal;
-  src:url("../fonts/IBMPlexMono-SemiBold.woff2") format("woff2");
+  src: url("../fonts/IBMPlexMono-SemiBold.woff2") format("woff2");
 }
 
 @font-face {
@@ -265,5 +268,5 @@ main {
   font-display: fallback;
   font-weight: 400;
   font-style: normal;
-  src:url("../fonts/IBMPlexMono-Regular.woff2") format("woff2");
+  src: url("../fonts/IBMPlexMono-Regular.woff2") format("woff2");
 }

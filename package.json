@@ -1,26 +1,28 @@
 {
-  "type": "module",
   "name": "blorp.dev",
   "version": "1.0.0",
   "description": "",
+  "type": "module",
   "scripts": {
     "build": "eleventy",
-    "watch": "eleventy --watch",
-    "serve": "eleventy --serve",
     "start": "eleventy --serve",
-    "debug": "DEBUG=* eleventy"
+    "format": "prettier --write '**/*.{js,css,html,md}'"
   },
-  "keywords": [],
+  "repository": {
+    "type": "git",
+    "url": "git+https://git.blorp.dev/zo/blorp.dev.git"
+  },
   "author": {
-    "name": "Zoe Gauthier",
-    "email": "hello@blorp.dev",
+    "name": "Zoé Cassiopée Gauthier",
+    "email": "zoe.gauthier@blorp.dev",
     "url": "https://blorp.dev"
   },
   "devDependencies": {
     "@11ty/eleventy": "^3.0.0",
     "@11ty/eleventy-plugin-syntaxhighlight": "^4.0.0",
-    "luxon": "^2.3.1",
+    "luxon": "^3.5.0",
     "markdown-it": "^14.1.0",
-    "markdown-it-attrs": "^4.1.6"
+    "markdown-it-attrs": "^4.1.6",
+    "prettier": "^3.5.1"
   }
 }

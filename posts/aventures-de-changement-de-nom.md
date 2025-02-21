@@ -3,6 +3,7 @@ title: Aventures de changement de nom
 date: 2024-01-31
 layout: layouts/post.njk
 ---
+
 En juillet 2023, j'ai amorcé légalement le changement de mon nom et de la mention du sexe. Aujourd'hui je n'ai pas
 encore complété tous les changements d'identité possibles, mais la majorité des étapes ont été franchies. J'ai d'abord
 fait une liste hiérarchique de toutes ces étapes, afin de toujours avoir les pièces d'identité nécessaires pour

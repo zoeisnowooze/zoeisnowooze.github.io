@@ -2,9 +2,10 @@
 title: Synthesizer tuning
 date: 2007-11-19
 tags:
-- electronics
+  - electronics
 layout: layouts/post.njk
 ---
+
 A typical modular synthesizer is not limited to a number of fixed pitches, but can generate sounds in a very wide range
 of frequencies. However, if one needs to play the synth much like any other standard Western musical instrument, it
 will need to be tuned. The pitch relations between notes are generally handled by a MIDI to control voltage (CV)
