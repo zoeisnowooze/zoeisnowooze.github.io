@@ -1,8 +1,17 @@
-<ul class="postlist">
+<div class="postlist h-feed">
 {% for post in postslist | reverse %}
-  <li class="postlist-item">
-    <a href="{{ post.url | url }}" class="postlist-link">{% if post.data.title %}{{ post.data.title }}{% else %}<code>{{ post.url }}</code>{% endif %}</a>
-    <time class="postlist-date" datetime="{{ post.date | htmlDateString }}">{{ post.date | readableDate }}</time>
-  </li>
+  <article class="postlist-item h-entry">
+    <header>
+      <a href="{{ post.url | url }}" class="postlist-link p-name u-url">{% if post.data.title %}{{ post.data.title }}{% else %}<code>{{ post.url }}</code>{% endif %}</a>
+      <time class="postlist-date dt-published" datetime="{{ post.date | htmlDateString }}">{{ post.date | readableDate }}</time>
+      <span class="h-card p-author hidden">
+        <a class="p-name u-url" rel="author me" href="https://blorp.dev/">Zoé Cassiopée Gauthier</a>
+        <a class="u-photo" href="{{ 'img/avatar.jpg' | htmlBaseUrl }}"></a>
+        <span class="p-pronouns">
+          <span class="p-pronoun-nominative">she</span> / <span class="p-pronoun-oblique">her</span>
+        </span>
+      </span>
+    </header>
+  </article>
 {% endfor %}
-</ul>
+</div>

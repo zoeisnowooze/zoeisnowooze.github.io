@@ -55,6 +55,8 @@ pre {
 
 h1 {
   font-weight: 200;
+  margin-block: 0.67em;
+  font-size: 2em;
 }
 
 h1,
@@ -121,6 +123,10 @@ main {
   display: none;
 }
 
+.hidden {
+  display: none;
+}
+
 .posts {
   background-color: white;
   border: 0.1em solid var(--color-border);
@@ -131,8 +137,9 @@ main {
 }
 
 .postlist {
-  list-style-type: none;
   padding: 0;
+  margin-top: 1em;
+  margin-bottom: 1em;
 }
 
 .postlist-item:not(:last-child) {
@@ -141,7 +148,7 @@ main {
 
 .postlist-date {
   font-size: 20px;
-  padding-left: 0.5em;
+  padding-left: 0.75em;
 }
 
 .home {
