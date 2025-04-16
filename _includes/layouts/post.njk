@@ -7,6 +7,14 @@ templateClass: tmpl-post
 
   <time class="dt-published" datetime="{{ page.date | htmlDateString }}">{{ page.date | readableDate }}</time>
 
+  <span class="p-author h-card hidden">
+    <a class="p-name u-url" rel="author me" href="https://blorp.dev/">Zoé Cassiopée Gauthier</a>
+    <a class="u-photo" href="{{ '/img/avatar.webp' | htmlBaseUrl }}"></a>
+    <span class="p-pronouns">
+      <span class="p-pronoun-nominative">she</span> / <span class="p-pronoun-oblique">her</span>
+    </span>
+  </span>
+
   <div class="e-content">
     {{ content | safe }}
   </div>
