@@ -6,6 +6,7 @@ templateClass: tmpl-post
   <h1 class="p-name">{{ title }}</h1>
 
   <time class="dt-published" datetime="{{ page.date | htmlDateString }}">{{ page.date | readableDate }}</time>
+  <a class="u-url u-uid hidden" href="{{ page.url | htmlBaseUrl("https://blorp.dev/") }}">Permalink</a>
 
   <span class="p-author h-card hidden">
     <a class="p-name u-url" rel="author me" href="https://blorp.dev/">Zoé Cassiopée Gauthier</a>
